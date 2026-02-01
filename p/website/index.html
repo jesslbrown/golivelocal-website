@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="GoLive Local builds fast, mobile-friendly websites for local businesses that want more phone calls - no contracts, no DIY, just done-for-you-sites."
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>GoLive Local — 1-Page Websites for Local Businesses</title>
+  <meta name="description" content="GoLive Local builds modern 1-page websites for local service businesses. Built to convert with phone + form + location. Hosting + SSL included." />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --panel:#ffffff;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:#e2e8f0;
+      --brand:#7c3aed;
+      --brand2:#22c55e;
+      --shadow: 0 20px 50px rgba(2, 6, 23, .08);
+      --shadow2: 0 8px 24px rgba(2, 6, 23, .08);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(124,58,237,.14), transparent 55%),
+        radial-gradient(900px 520px at 90% 0%, rgba(34,197,94,.12), transparent 55%),
+        var(--bg);
+      line-height:1.6;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: rgba(255,255,255,.75);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900;
+      letter-spacing:-.2px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:14px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 14px 30px rgba(124,58,237,.18);
+      display:grid; place-items:center;
+      flex: 0 0 38px;
+      color:white;
+      font-weight:900;
+    }
+    .nav{
+      display:flex; gap:10px; align-items:center;
+      color:var(--muted);
+      font-weight:800;
+      font-size:14px;
+    }
+    .nav a{padding:10px 12px; border-radius:12px}
+    .nav a:hover{background: rgba(2,6,23,.04); color: var(--text)}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      font-weight:900;
+      border: 1px solid var(--line);
+      background: white;
+      box-shadow: var(--shadow2);
+      transition: .15s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn-primary{
+      border: none;
+      color:white;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 16px 40px rgba(124,58,237,.18);
+    }
+    .btn-ghost{background: rgba(255,255,255,.85)}
+    .btn-block{width:100%}
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.7);
+      color: var(--muted);
+      font-weight:900;
+      font-size:13px;
+    }
+
+    /* header contact (phone + location only) */
+    .header-contact{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      color:var(--muted);
+      font-weight:850;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .header-contact a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.7);
+      box-shadow: var(--shadow2);
+      color:inherit;
+      transition:.15s ease;
+    }
+    .header-contact a:hover{transform: translateY(-1px)}
+    .header-contact .loc{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.7);
+      box-shadow: var(--shadow2);
+    }
+
+    .hero{padding:72px 0 34px}
+    .hero-grid{
+      display:grid; gap:22px;
+      grid-template-columns: 1.1fr .9fr;
+      align-items:stretch;
+    }
+    .headline{
+      font-size: clamp(36px, 4.2vw, 56px);
+      line-height:1.05;
+      margin:12px 0 12px;
+      letter-spacing:-1px;
+    }
+    .subhead{
+      margin:0 0 18px;
+      color: var(--muted);
+      max-width: 62ch;
+      font-size: 16px;
+    }
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 10px}
+    .stats{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .chip{
+      display:flex; gap:8px; align-items:center;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      color: var(--muted);
+      font-weight:900;
+      font-size:13px;
+    }
+
+    .card{
+      background: rgba(255,255,255,.85);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .form-card{padding:18px}
+    .form-card h3{margin:0 0 6px; font-size:16px}
+    .form-card p{margin:0 0 14px; color:var(--muted); font-size:14px}
+
+    .form{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .input{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: white;
+      color: var(--text);
+      outline:none;
+      font-family:inherit;
+      font-size:15px;
+    }
+    .input:focus{border-color: rgba(124,58,237,.55); box-shadow: 0 0 0 4px rgba(124,58,237,.12)}
+    .form .full{grid-column:1/-1}
+    .helper{
+      margin-top:10px;
+      font-size:12px;
+      color: var(--muted);
+      font-weight:800;
+    }
+    .status{
+      margin-top:10px;
+      font-size:13px;
+      font-weight:900;
+      white-space:pre-wrap;
+    }
+
+    section{padding:34px 0}
+    .section-title{font-size:22px; margin:0 0 8px; letter-spacing:-.3px}
+    .section-sub{margin:0 0 18px; color:var(--muted); font-weight:700}
+
+    .grid-3{display:grid; gap:14px; grid-template-columns: repeat(3,1fr)}
+    .feature{padding:18px}
+    .feature h4{margin:10px 0 6px}
+    .feature p{margin:0; color:var(--muted); font-size:14px; font-weight:650}
+    .icon{
+      width:44px; height:44px; border-radius:14px;
+      display:grid; place-items:center;
+      background: rgba(124,58,237,.10);
+      border:1px solid rgba(124,58,237,.18);
+      font-weight:950;
+    }
+
+    /* Pricing */
+    .pricing{
+      display:grid; gap:14px;
+      grid-template-columns: repeat(3, 1fr);
+      align-items:stretch;
+    }
+    .price{
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .price .tag{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:950;
+      border:1px solid var(--line);
+      color: var(--muted);
+      background: rgba(255,255,255,.7);
+    }
+    .price h3{margin:12px 0 6px}
+    .price .amount{
+      font-size:34px;
+      font-weight:950;
+      letter-spacing:-.8px;
+      margin:6px 0 12px;
+    }
+    .price .blurb{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .list{margin:0; padding:0; list-style:none; color:var(--muted)}
+    .list li{display:flex; gap:10px; padding:8px 0; border-top:1px solid var(--line); font-weight:700}
+    .list li:first-child{border-top:none}
+    .check{
+      width:22px; height:22px; border-radius:8px;
+      display:grid; place-items:center;
+      background: rgba(34,197,94,.12);
+      border: 1px solid rgba(34,197,94,.2);
+      color: #14532d;
+      font-weight:950;
+      flex:0 0 22px;
+    }
+
+    /* Featured pricing (Growth) */
+    .price.featured{
+      border-color: rgba(124,58,237,.28);
+      box-shadow: 0 26px 70px rgba(124,58,237,.14);
+      transform: translateY(-4px);
+    }
+    .price.featured::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(600px 240px at 30% 0%, rgba(124,58,237,.18), transparent 60%),
+                  radial-gradient(600px 240px at 90% 20%, rgba(34,197,94,.14), transparent 60%);
+      pointer-events:none;
+      z-index:0;
+    }
+    .price.featured > *{position:relative; z-index:1}
+    .featured-badge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:950;
+      color:#4c1d95;
+      background: rgba(124,58,237,.10);
+      border: 1px solid rgba(124,58,237,.22);
+    }
+
+    /* FAQ */
+    .faq{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    details.card{
+      padding:16px 18px;
+    }
+    summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight:950;
+      letter-spacing:-.2px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .caret{
+      width:28px; height:28px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      display:grid;
+      place-items:center;
+      color:var(--muted);
+      background: rgba(255,255,255,.7);
+      flex:0 0 28px;
+      transition: transform .15s ease;
+    }
+    details[open] .caret{transform: rotate(180deg)}
+    .faq p{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-weight:700;
+      font-size:14px;
+    }
+
+    footer{padding:28px 0 40px; color:var(--muted)}
+    .footer-grid{
+      display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      border-top:1px solid var(--line);
+      padding-top:18px;
+      font-size:14px;
+      font-weight:700;
+      align-items:flex-start;
+    }
+    .footer-contact{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+      color:var(--muted);
+      font-weight:850;
+      font-size:13px;
+    }
+    .footer-contact a{
+      color:inherit;
+      text-decoration:none;
+      border-bottom: 1px dashed rgba(100,116,139,.6);
+    }
+    .footer-contact a:hover{border-bottom-color: rgba(15,23,42,.55)}
+
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr}
+      .faq{grid-template-columns:1fr}
+      .nav{display:none}
+      .form{grid-template-columns:1fr}
+      .price.featured{transform:none}
+      .header-contact{justify-content:flex-start}
+      .footer-contact{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <a class="brand" href="#top">
+          <div class="logo" aria-hidden="true">GL</div>
+          <div>GoLive Local</div>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="#how">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Get a preview</a>
+        </nav>
+
+        <!-- ✅ ONLY phone + location in header -->
+        <div class="header-contact" aria-label="Business contact">
+          <a href="tel:+12262707098" aria-label="Call 226-270-7098">📞 226-270-7098</a>
+          <span class="loc" aria-label="Location">📍 London, Ontario</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="pill">✔️ Services • ✔️ Phone + form • ✔️ Location • ✔️ Call-to-action • ✔️ Hosting + SSL</span>
+
+          <h1 class="headline">
+            Get Online With a Website That Converts —
+            <span style="background:linear-gradient(135deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent">
+              live fast
+            </span>.
+          </h1>
+
+          <p class="subhead">
+            Built to generate calls, not confusion. Mobile-first design with phone, contact form, and location —
+            <strong>hosting + SSL included</strong>.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">✨ Get My Free Preview</a>
+            <a class="btn btn-ghost" href="#pricing">See Pricing</a>
+            <a class="btn btn-ghost" href="#faq">Read FAQ</a>
+          </div>
+
+          <div class="stats">
+            <div class="chip">✅ No contracts</div>
+            <div class="chip">✅ Cancel anytime</div>
+            <div class="chip">✅ Preview before you pay</div>
+          </div>
+        </div>
+
+        <div class="card form-card" id="contact">
+          <h3>Request a free preview</h3>
+          <p>Send your details and we’ll build a preview site.</p>
+
+          <form class="form" id="lead-form">
+            <input class="input" name="name" placeholder="Your name" required />
+            <input class="input" name="phone" placeholder="Phone number" required />
+            <input class="input full" name="email" type="email" placeholder="Email address" required />
+            <input class="input full" name="business" placeholder="Business name" required />
+            <input class="input" name="city" placeholder="City" required />
+            <input class="input" name="niche" placeholder="Business type (e.g., Roofing)" required />
+            <textarea class="input full" name="message" placeholder="Services you offer + anything to include (hours, address, etc.)"></textarea>
+            <button class="btn btn-primary full" type="submit">Send Request</button>
+          </form>
+
+          <div class="helper">
+          </div>
+          <div class="status" id="formStatus" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="how">
+    <div class="container">
+      <h2 class="section-title">How it works</h2>
+      <p class="section-sub">Simple process. Fast turnaround.</p>
+
+      <div class="grid-3">
+        <div class="card feature">
+          <div class="icon">1</div>
+          <h4>Send your details</h4>
+          <p>Business name, city, phone, niche, services, and what you want on the page.</p>
+        </div>
+        <div class="card feature">
+          <div class="icon">2</div>
+          <h4>We build your preview</h4>
+          <p>You’ll get a modern preview you can view and approve.</p>
+        </div>
+        <div class="card feature">
+          <div class="icon">3</div>
+          <h4>Start getting leads</h4>
+          <p>Once approved, your site goes live and starts driving calls.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">Simple Monthly Pricing</h2>
+      <p class="section-sub">Everything you need to get online fast — without contracts or tech headaches.</p>
+
+      <div class="pricing">
+        <div class="card price">
+          <span class="tag">Starter</span>
+          <h3>Launch</h3>
+          <div class="amount">$24.99<span style="font-size:14px; font-weight:900; color:var(--muted)">/mo</span></div>
+          <p class="blurb">Best for getting online fast.</p>
+          <ul class="list">
+            <li><span class="check">✓</span> 1-page modern website</li>
+            <li><span class="check">✓</span> Mobile-first design</li>
+            <li><span class="check">✓</span> Phone + contact form + location</li>
+            <li><span class="check">✓</span> Hosting + SSL</li>
+          </ul>
+          <div style="margin-top:14px">
+            <a class="btn btn-ghost btn-block" href="https://buy.stripe.com/5kQ28r1B27T045d4Lp08g03" target="_blank" rel="noopener noreferrer">Start with Launch</a>
+          </div>
+        </div>
+
+        <div class="card price featured">
+          <span class="featured-badge">⭐ Most popular</span>
+          <h3 style="margin-top:12px">Growth</h3>
+          <div class="amount">$99.99<span style="font-size:14px; font-weight:900; color:var(--muted)">/mo</span></div>
+          <p class="blurb">Best for businesses that want more calls.</p>
+          <ul class="list">
+            <li><span class="check">✓</span> Everything in Launch</li>
+            <li><span class="check">✓</span> Priority updates & edits</li>
+            <li><span class="check">✓</span> Conversion-focused layout</li>
+            <li><span class="check">✓</span> Analytics setup</li>
+          </ul>
+          <div style="margin-top:14px">
+            <a class="btn btn-primary btn-block" href="https://buy.stripe.com/cNifZh2F6ehocBJ3Hl08g01" target="_blank" rel="noopener noreferrer">Start with Growth</a>
+          </div>
+        </div>
+
+        <div class="card price">
+          <span class="tag">Pro</span>
+          <h3>Scale</h3>
+          <div class="amount">$199.99<span style="font-size:14px; font-weight:900; color:var(--muted)">/mo</span></div>
+          <p class="blurb">Best for businesses ready to grow aggressively.</p>
+          <ul class="list">
+            <li><span class="check">✓</span> Everything in Growth</li>
+            <li><span class="check">✓</span> Advanced tracking & events</li>
+            <li><span class="check">✓</span> Ongoing optimization</li>
+            <li><span class="check">✓</span> Priority support</li>
+          </ul>
+          <div style="margin-top:14px">
+            <a class="btn btn-ghost btn-block" href="https://buy.stripe.com/7sYfZhenO8X4atB3Hl08g02" target="_blank" rel="noopener noreferrer">Start with Scale</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px; padding:14px 16px; border:1px solid var(--line); border-radius:16px; background: rgba(255,255,255,.7); box-shadow: var(--shadow2);">
+        <div style="font-weight:950; letter-spacing:-.2px;">No long-term contracts. Cancel anytime.</div>
+        <div style="color:var(--muted); font-weight:750; margin-top:4px;">
+          We build your site first. You only continue if you’re happy with the preview.
+        </div>
+      </div>
+
+      <p style="margin-top:12px; color:var(--muted); font-weight:800; font-size:13px;">
+        After checkout, you’ll get an email with next steps + a quick intake form.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">FAQ</h2>
+      <p class="section-sub">Quick answers before you book.</p>
+
+      <div class="faq">
+        <details class="card">
+          <summary>How fast can my site go live? <span class="caret">⌄</span></summary>
+          <p>Most previews are ready within <strong>24–48 hours</strong>. Once approved, we can connect your domain and publish fast.</p>
+        </details>
+
+        <details class="card">
+          <summary>Do I need a domain already? <span class="caret">⌄</span></summary>
+          <p>No. If you don’t have one yet, you can still request a preview now and connect your domain later.</p>
+        </details>
+
+        <details class="card">
+          <summary>Can I make changes after launch? <span class="caret">⌄</span></summary>
+          <p>Yes. All plans include updates. <strong>Growth</strong> and <strong>Scale</strong> get faster edits and ongoing optimization.</p>
+        </details>
+
+        <details class="card">
+          <summary>What do you need from me to start? <span class="caret">⌄</span></summary>
+          <p>Business name, city, what you do, phone number, and a few services. If you have photos/logo, we can use those too.</p>
+        </details>
+
+        <details class="card">
+          <summary>Is there a contract? <span class="caret">⌄</span></summary>
+          <p>No long-term contracts. It’s monthly. You can cancel anytime.</p>
+        </details>
+
+        <details class="card">
+          <summary>What happens after I pay? <span class="caret">⌄</span></summary>
+          <p>You’ll get an email with next steps and an intake form. We confirm details, build/adjust, and launch on Cloudflare Pages.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="font-weight:950; color:var(--text)">GoLive Local</div>
+          <div>1-page websites for local businesses</div>
+        </div>
+
+        <!-- ✅ ONLY phone + location in footer -->
+        <div class="footer-contact" aria-label="Business contact">
+          <div>📍 London, Ontario</div>
+          <div>•</div>
+          <div>📞 <a href="tel:+12262707098">226-270-7098</a></div>
+          <div>•</div>
+          <div>© <span id="year"></span> GoLive Local</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ✅ Worker URL (no trailing slash)
+    const WORKER_BASE = "https://golivelocal-contact.jesslb087.workers.dev";
+    // Some workers expect / (root), others expect /contact. We'll try both.
+    const CANDIDATE_ENDPOINTS = [
+      WORKER_BASE,
+      WORKER_BASE + "/contact"
+    ];
+
+    const form = document.getElementById("lead-form");
+    const statusEl = document.getElementById("formStatus");
+
+    async function postToWorker(payload) {
+      let lastErr = null;
+
+      for (const url of CANDIDATE_ENDPOINTS) {
+        try {
+          const res = await fetch(url, {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json, text/plain, */*"
+            },
+            body: JSON.stringify(payload),
+          });
+
+          const text = await res.text();
+          let json = null;
+          try { json = JSON.parse(text); } catch (_) {}
+
+          if (res.ok) return { ok: true, url, status: res.status, text, json };
+
+          lastErr = { ok: false, url, status: res.status, text, json };
+        } catch (e) {
+          lastErr = { ok: false, url, error: String(e) };
+        }
+      }
+
+      return lastErr || { ok: false, error: "Unknown error" };
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      statusEl.textContent = "Sending…";
+
+      const payload = Object.fromEntries(new FormData(form).entries());
+
+      if (!payload.message || !String(payload.message).trim()) {
+        payload.message = `Preview request from ${payload.business || "a local business"} in ${payload.city || "their city"} (${payload.niche || "business type"}).`;
+      }
+
+      const result = await postToWorker(payload);
+
+      if (result && result.ok) {
+        statusEl.textContent = "✅ Sent! We’ll be in touch shortly.";
+        form.reset();
+        return;
+      }
+
+      const details =
+        (result && result.json && (result.json.error || result.json.message)) ||
+        (result && result.text) ||
+        (result && result.error) ||
+        "Unknown error";
+
+      const where = result && result.url ? "Endpoint: " + result.url : "";
+      const code = result && result.status ? "Status: " + result.status : "";
+
+      statusEl.textContent =
+        "❌ Something went wrong.\n" +
+        [where, code, String(details).slice(0, 400)].filter(Boolean).join("\n");
+    });
+  </script>
+</body>
+</html>
